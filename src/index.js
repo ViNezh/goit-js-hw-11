@@ -105,6 +105,7 @@ async function getPhoto(request, currentPage) {
     q: request,
     image_type: 'photo',
     min_width: '320px',
+    min_height: '300px',
     orientation: 'horizontal',
     safesearch: true,
     page: currentPage,
