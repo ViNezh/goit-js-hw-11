@@ -104,6 +104,7 @@ async function getPhoto(request, currentPage) {
     key: '38856418-a7b3dde49805ba60b9b57505c',
     q: request,
     image_type: 'photo',
+    min_width: '320px',
     orientation: 'horizontal',
     safesearch: true,
     page: currentPage,
@@ -120,6 +121,7 @@ async function getPhoto(request, currentPage) {
 
 // Функція створення розмітки колекції карток
 function makeMarkup(arr) {
+  // Використовуючи масив отриманих значень створюємо розмітку
   return arr
     .map(
       ({
@@ -131,26 +133,29 @@ function makeMarkup(arr) {
         comments,
         downloads,
       }) =>
-        `<a href="${largeImageURL}" class="gallery_link">
-        <div class="photo-card">
-          <img src="${webformatURL}" alt="${tags}" loading="lazy" width="300px" height="200px"/>
-           <div class="info">
-        <p class="info-item">
-          <b>Likes:${likes}</b>
-        </p>
-        <p class="info-item">
-          <b>Views:${views}</b>
-        </p>
-        <p class="info-item">
-          <b>Comments:${comments}</b>
-        </p>
-        <p class="info-item">
-          <b>Downloads:${downloads}</b>
-        </p>
-      </div>
-    </div>
-     </a>
-  `
+        `<div class="photo-card">
+        <a href="${largeImageURL}" class="gallery_link">
+          <img src="${webformatURL}" alt="${tags}" loading="lazy" width="300px" height="200px" />
+        </a>
+        <div class="info">
+          <p class="info-item">
+            <b>Likes: <br />
+              ${likes}</b>
+          </p>
+          <p class="info-item">
+            <b>Views: <br />
+              ${views}</b>
+          </p>
+          <p class="info-item">
+            <b>Comments: <br />
+              ${comments}</b>
+          </p>
+          <p class="info-item">
+            <b>Downloads: <br />
+              ${downloads}</b>
+          </p>
+        </div>
+      </div>`
     )
     .join(' ');
 }
