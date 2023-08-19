@@ -87,7 +87,7 @@ function handlerLoadMore() {
       // Робимо видимою кнопку Load-more
       loadMore.classList.remove('is-hidden');
       // Викликаємо прокручування сторінки після запиту
-      scrolling(1.8);
+      scrolling(2.2);
       // Викликаємо функцію перевірки кількості сторінок
       endOfPages();
     })
@@ -168,9 +168,9 @@ function endOfPages() {
     Notiflix.Notify.warning(
       "We're sorry, but you've reached the end of search results.",
       {
-        width: '640px',
+        width: '320px',
         position: 'center-top',
-        fontSize: '18px',
+        fontSize: '16px',
         timeout: 3000,
       }
     );
