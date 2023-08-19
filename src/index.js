@@ -135,7 +135,7 @@ function makeMarkup(arr) {
         downloads,
       }) =>
         `<div class="photo-card">
-        <a href="${largeImageURL}" class="gallery_link">
+        <a href="${largeImageURL}" class="gallery-link">
           <img src="${webformatURL}" alt="${tags}" loading="lazy" width="300px" height="200px" />
         </a>
         <div class="info">
