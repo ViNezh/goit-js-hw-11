@@ -53,7 +53,7 @@ function onFormSubmit(evt) {
       // Заповнюємо сторінку картками з зображеннями
       gallery.insertAdjacentHTML('beforeend', makeMarkup(data.hits));
       // Створюємо галерею карток за допомогою SimpleLightbox
-      galleryPhoto = new SimpleLightbox('.gallery_link', {
+      galleryPhoto = new SimpleLightbox('.gallery a', {
         navText: ['&lsaquo;', '&rsaquo;'],
       });
       // Виводимо повідомлення про кількість знайдених зображень
@@ -61,7 +61,7 @@ function onFormSubmit(evt) {
       // Робимо видимою кнопку Load-more
       loadMore.classList.remove('is-hidden');
       // Викликаємо прокручування сторінки після запиту
-      scrolling();
+      scrolling(0.25);
       // Викликаємо функцію перевірки кількості сторінок
       endOfPages();
     })
@@ -87,7 +87,7 @@ function handlerLoadMore() {
       // Робимо видимою кнопку Load-more
       loadMore.classList.remove('is-hidden');
       // Викликаємо прокручування сторінки після запиту
-      scrolling();
+      scrolling(1.8);
       // Викликаємо функцію перевірки кількості сторінок
       endOfPages();
     })
@@ -177,12 +177,12 @@ function endOfPages() {
   }
 }
 // Функція плавного прокручування сторінки після запиту і відтворення кожної наступної групи зображень.
-function scrolling() {
+function scrolling(multipl) {
   const { height: cardHeight } = document
     .querySelector('.gallery')
     .firstElementChild.getBoundingClientRect();
   window.scrollBy({
-    top: cardHeight * 2,
+    top: cardHeight * multipl,
     behavior: 'smooth',
   });
 }

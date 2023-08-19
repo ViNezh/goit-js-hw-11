@@ -20,17 +20,14 @@ a:hover {
 }
 
 p {
-    margin: 0;
-    padding: 0;
-}
-
-input {
-  height: 32px;
+  margin: 0;
+  padding: 0;
 }
 
 .search-form {
   display: flex;
   justify-content: center;
+  column-gap: 5px;
   padding: 10px 0;
   background: linear-gradient(
     90deg,
@@ -41,8 +38,27 @@ input {
   font-size: 16px;
   line-height: 2;
 }
+
+.search-form > input {
+  height: 36px;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 4px;
+  outline: 1px solid transparent;
+  padding-bottom: 4px;
+}
+.search-form > input:focus {
+  border-color: transparent;
+  outline: 1px solid rgba(46, 47, 66, 0.4);
+}
+
+.search-form > button {
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
 .search-form > button:hover {
   cursor: pointer;
+  border: 1px solid #000;
 }
 .gallery {
   display: flex;
@@ -55,11 +71,10 @@ input {
 .photo-card {
   border: 1px solid rgb(180, 178, 178);
   border-radius: 3px;
-  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16),
-  0px 2px 1px rgba(46, 47, 66, 0.08);
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
   max-width: 300px;
   overflow: hidden;
-  
 }
 .gallery-link {
   display: flex;
@@ -73,15 +88,15 @@ input {
 }
 .info {
   display: flex;
-    justify-content: space-evenly;
+  justify-content: space-evenly;
   column-gap: 15px;
   background-color: #e4e2e2;
 }
 
-.info-item{
-   font-size: 13px;
-   text-align: center;
-   margin: 5px 3px;
+.info-item {
+  font-size: 13px;
+  text-align: center;
+  margin: 5px 3px;
 }
 
 .load-more {
@@ -89,7 +104,14 @@ input {
   cursor: pointer;
   margin: 10px auto;
   font-size: 20px;
+  border-radius: 4px;
+  border: 1px solid transparent;
 }
+
+.load-more:hover{
+  border-color: #000;
+}
+
 .is-hidden {
   position: absolute;
   width: 1px;
